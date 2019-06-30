@@ -1,8 +1,9 @@
 <template>
   <div class="wrapper">
-    <h5>Orders Received</h5>
-    <i class="fas fa-medal"></i>
-    <h4>58349</h4>
+    <i class="fas fa-star"></i>
+    <h2>
+      <span>4.7</span>
+    </h2>
   </div>
 </template>
 <script>
@@ -11,13 +12,12 @@ export default {};
 <style scoped>
 .wrapper {
   position: relative;
+  float: left;
   height: calc(175px - 0.5rem);
   width: calc(50% - 0.5rem);
+  margin-top: 1rem;
   background: white;
-  padding: 1rem;
   box-shadow: 2px 2px 10px #ccc;
-  margin-left: 1rem;
-  float: left;
   transition: all 0.3s ease-in-out;
   border: 1px solid transparent;
 }
@@ -28,18 +28,24 @@ export default {};
   border-color: #8272f7;
 }
 
-h5 {
-  text-align: center;
+h2 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 6rem;
+  padding-right: 1rem;
+  text-align: right;
+  letter-spacing: 0.1rem;
 }
-h4 {
-  text-align: center;
+
+h2 span {
+  color: #8272f7;
 }
 
 i {
-  text-align: center;
-  font-size: 3rem;
-  display: block;
-  margin: 1rem 0;
+  font-size: 5rem;
+  padding: 0.75rem;
+  padding-left: 1.3rem;
   color: #8272f7;
 }
 </style>

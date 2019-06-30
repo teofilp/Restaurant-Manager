@@ -1,7 +1,7 @@
 <template>
   <div id="nav_wrapper">
     <ul>
-      <router-link tag="li" to="/">
+      <router-link tag="li" to="/" class="active">
         <i class="fas fa-layer-group p-2 ml-4 mr-2"></i>Overviews
       </router-link>
       <router-link tag="li" to="/products">

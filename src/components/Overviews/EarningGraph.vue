@@ -17,7 +17,7 @@ export default {
         datasets: [
           {
             label: "earnings",
-            data: [1200, 1900, 300, 500, 250, 3560, 1300],
+            data: [2000, 1900, 2400, 3200, 3750, 3560, 3200],
             backgroundColor: ["rgba(159, 150, 224, .5)"],
             borderColor: ["#8272f7"],
             borderWidth: 3
