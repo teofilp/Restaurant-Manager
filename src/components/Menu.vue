@@ -1,19 +1,19 @@
 <template>
   <div id="nav_wrapper">
     <ul>
-      <router-link tag="li" to="/" class="active">
+      <router-link tag="li" to="/" exact active-class="active">
         <i class="fas fa-layer-group p-2 ml-4 mr-2"></i>Overviews
       </router-link>
-      <router-link tag="li" to="/products">
+      <router-link tag="li" to="/products" active-class="active">
         <i class="fas fa-hamburger p-2 ml-4 mr-2"></i>Products
       </router-link>
-      <router-link tag="li" to="/orders">
+      <router-link tag="li" to="/orders" active-class="active">
         <i class="fas fa-list p-2 ml-4 mr-2"></i>Orders
       </router-link>
-      <router-link tag="li" to="/staff">
+      <router-link tag="li" to="/staff" active-class="active">
         <i class="fas fa-utensils p-2 ml-4 mr-2"></i>Staff
       </router-link>
-      <router-link tag="li" to="/reviews">
+      <router-link tag="li" to="/reviews" active-class="active">
         <i class="fas fa-smile p-2 ml-4 mr-2"></i>Reviews
       </router-link>
     </ul>

@@ -2,7 +2,6 @@
   <div class="wrapper">
     <h4 class="pl-3">Overview</h4>
     <Overview></Overview>
-
     <h4 class="pl-3">Trending Orders</h4>
     <trending-orders-list></trending-orders-list>
   </div>
