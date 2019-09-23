@@ -1,24 +1,45 @@
 <template>
   <div class="row mt-3">
-    <Item
-      v-for="product in products"
-      class="col-3"
-      :key="product"
-      product_description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat"
-    ></Item>
+    <div class="spinner-grow text-primary" :class="{active: isLoading}" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+    <Item v-for="product in products" class="col-3" :key="product.name" :product="product"></Item>
   </div>
 </template>
 
 <script>
 import ProductCategoryListItem from "./ProductCategoryListItem";
+import Api from "../../../api/api";
 export default {
   data() {
     return {
-      products: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+      products: [],
+      isLoading: false
     };
   },
+
+  watch: {
+    $route(to, from) {
+      this.products = [];
+      this.getProducts();
+    }
+  },
+
+  methods: {
+    getProducts: async function() {
+      this.isLoading = true;
+      try {
+        let categoryName = this.$route.params.categoryName;
+        this.products = await Api.getProductsByCategory(categoryName);
+      } catch {
+      } finally {
+        this.isLoading = false;
+      }
+    }
+  },
+
   mounted() {
-    console.log("ceva");
+    this.getProducts();
   },
 
   components: {
@@ -28,5 +49,16 @@ export default {
 </script>
 
 <style scoped>
+.spinner-grow {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.spinner-grow.active {
+  display: block;
+}
 </style>
 

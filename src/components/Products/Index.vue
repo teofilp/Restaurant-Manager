@@ -1,14 +1,22 @@
 <template>
   <div class="container mt-3">
-    <categories-list></categories-list>
+    <categories-list :categories="categories"></categories-list>
     <router-view></router-view>
   </div>
 </template>
 <script>
 import CategoriesList from "./CategoriesList";
+import Api from "../../../api/api";
 export default {
-  mounted() {
-    this.$router.push('products/category/desert');
+  data() {
+    return {
+      categories: []
+    };
+  },
+  async mounted() {
+    this.categories = await Api.getProductCategories();
+    if (this.categories.length > 0)
+      this.$router.push("products/category/" + this.categories[0]);
   },
   components: {
     CategoriesList

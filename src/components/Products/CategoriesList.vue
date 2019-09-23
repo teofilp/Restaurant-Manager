@@ -15,18 +15,7 @@
 
 <script>
 export default {
-  data() {
-    return {
-      categories: [
-        "desert",
-        "side-dishes",
-        "pizza",
-        "pasta",
-        "salads",
-        "drinks"
-      ]
-    };
-  }
+  props: ["categories"]
 };
 </script>
 

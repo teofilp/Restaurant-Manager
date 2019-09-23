@@ -1,10 +1,10 @@
 <template>
   <div class="small_padding mb-3">
     <div class="item_wrapper">
-      <img class="product_image" src="./../../assets/foods/adminTrendingOrders1.jpg" alt />
+      <img class="product_image" :src="product.imgLink" alt />
       <div class="row mt-2">
-        <h5 class="col-6 product_title">Beef Tartare</h5>
-        <h5 class="col-6 price_tag">$34</h5>
+        <h5 class="col-8 product_title">{{product.name}}</h5>
+        <h5 class="col-4 price_tag">{{product.price}} Lei</h5>
       </div>
       <div class="row">
         <p class="product_description">{{getProductDescription}}</p>
@@ -14,13 +14,16 @@
 </template>
 <script>
 export default {
-  props: ["product_description"],
+  props: ["product"],
   computed: {
     getProductDescription() {
-      if (this.product_description.length < 180)
-        return this.product_description;
-      return this.product_description.substr(0, 180) + "...";
+      if (!this.product.desc) return;
+      if (this.product.desc.length < 180) return this.product.desc;
+      return this.product.desc.substr(0, 180) + "...";
     }
+  },
+  updated() {
+    console.log(this.product);
   }
 };
 </script>
@@ -32,7 +35,7 @@ export default {
   transition: transform 0.2s ease-in-out;
   user-select: none;
   overflow: hidden;
-  line-height: .85rem;
+  line-height: 0.85rem;
 }
 .item_wrapper:hover {
   transform: scale(1.05);
