@@ -7,6 +7,9 @@
 <script>
 import CategoriesList from "./CategoriesList";
 export default {
+  mounted() {
+    this.$router.push('products/category/desert');
+  },
   components: {
     CategoriesList
   }

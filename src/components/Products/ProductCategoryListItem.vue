@@ -31,6 +31,8 @@ export default {
   box-shadow: 2px 2px 10px #ccc;
   transition: transform 0.2s ease-in-out;
   user-select: none;
+  overflow: hidden;
+  line-height: .85rem;
 }
 .item_wrapper:hover {
   transform: scale(1.05);
