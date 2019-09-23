@@ -1,8 +1,8 @@
 <template>
   <div class="wrapper">
-    <h4 class="pl-3">Overview</h4>
+    <h4 class="pl-3 mt-4">Overview</h4>
     <Overview></Overview>
-    <h4 class="pl-3">Trending Orders</h4>
+    <h4 class="pl-3 mt-5">Trending Orders</h4>
     <trending-orders-list></trending-orders-list>
   </div>
 </template>

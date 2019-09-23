@@ -18,6 +18,7 @@ export default {
 .wrapper.row {
   width: 100%;
   margin: 0;
+  margin-top: 1rem;
   padding: 0.5rem;
   height: auto;
 }

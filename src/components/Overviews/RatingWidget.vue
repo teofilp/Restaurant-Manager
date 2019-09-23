@@ -26,6 +26,7 @@ export default {};
   transform: scale(1.05);
   z-index: 100;
   border-color: #8272f7;
+  cursor: pointer;
 }
 
 h2 {

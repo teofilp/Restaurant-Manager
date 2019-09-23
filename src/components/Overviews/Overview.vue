@@ -50,6 +50,7 @@ export default {
   width: 100%;
   height: 350px;
   padding: 0 1rem;
+  margin-top: 1rem;
   position: relative;
 }
 

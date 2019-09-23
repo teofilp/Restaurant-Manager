@@ -52,6 +52,7 @@ export default {
   transform: scale(1.05);
   border-color: #8272f7;
   z-index: 100;
+  cursor: pointer;
 }
 .info {
   height: 100%;

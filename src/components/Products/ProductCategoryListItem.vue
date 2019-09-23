@@ -1,31 +1,32 @@
 <template>
-  <div class="small_padding">
+  <div class="small_padding mb-3">
     <div class="item_wrapper">
-      <img class="food_image" src="./../../assets/foods/adminTrendingOrders1.jpg" alt />
+      <img class="product_image" src="./../../assets/foods/adminTrendingOrders1.jpg" alt />
       <div class="row mt-2">
-        <h5 class="col-6 food_title">Beef Tartare</h5>
+        <h5 class="col-6 product_title">Beef Tartare</h5>
         <h5 class="col-6 price_tag">$34</h5>
       </div>
-
-      <div class="row mt-2">
-        <h6 class="col-6 order_number">
-          Order
-          <span>75</span>
-        </h6>
-        <h6 class="col-6 revenue">
-          Revenue
-          <span>$708</span>
-        </h6>
+      <div class="row">
+        <p class="product_description">{{getProductDescription}}</p>
       </div>
     </div>
   </div>
 </template>
 <script>
-export default {};
+export default {
+  props: ["product_description"],
+  computed: {
+    getProductDescription() {
+      if (this.product_description.length < 180)
+        return this.product_description;
+      return this.product_description.substr(0, 180) + "...";
+    }
+  }
+};
 </script>
 <style scoped>
 .item_wrapper {
-  height: 220px;
+  height: 250px;
   background-color: white;
   box-shadow: 2px 2px 10px #ccc;
   transition: transform 0.2s ease-in-out;
@@ -35,14 +36,14 @@ export default {};
   transform: scale(1.05);
   cursor: pointer;
 }
-.food_image {
+.product_image {
   width: 100%;
-  height: 70%;
+  height: 50%;
 }
 .row {
   margin: 0;
 }
-.food_title {
+.product_title {
   font-size: 0.9rem;
   padding-left: 1rem;
   font-weight: 700;
@@ -58,24 +59,10 @@ export default {};
   margin-bottom: 0;
 }
 
-.order_number,
-.revenue {
-  padding-left: 1rem;
+.product_description {
+  padding: 1rem;
+  padding-top: 0.5rem;
   font-size: 0.7rem;
-  font-weight: 700;
-  color: #bcbcbc;
-  display: inline-block;
-}
-
-.order_number span,
-.revenue span {
-  color: #f2944e;
-}
-
-.revenue {
-  text-align: right;
-  display: inline-block;
-  padding-right: 1rem;
 }
 </style>
 
