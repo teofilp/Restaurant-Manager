@@ -30,7 +30,19 @@ export default {
       this.isLoading = true;
       try {
         let categoryName = this.$route.params.categoryName;
-        this.products = await Api.getProductsByCategory(categoryName);
+        let subcategoryName = this.$route.params.subcategoryName;
+
+        this.products = await Api.getProductsByCategory(
+          categoryName,
+          subcategoryName
+        );
+
+        if (this.products.length == 0) {
+          this.products = await Api.getProductCategory(
+            categoryName,
+            subcategoryName.toUpperCase()
+          );
+        }
       } catch {
       } finally {
         this.isLoading = false;

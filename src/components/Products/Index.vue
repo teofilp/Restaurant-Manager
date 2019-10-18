@@ -16,7 +16,7 @@ export default {
   async mounted() {
     this.categories = await Api.getProductCategories();
     if (this.categories.length > 0)
-      this.$router.push("products/category/" + this.categories[0]);
+      this.$router.push("products/category/" + this.categories[0].foodCategory);
   },
   components: {
     CategoriesList

@@ -21,6 +21,11 @@ export default new Router({
         path: 'category/:categoryName',
         name: 'categoryName',
         component: ProductCategoryList
+      },
+      {
+        path: 'category/:categoryName/:subcategoryName',
+        name: 'categoryNameSub',
+        component: ProductCategoryList
       }
     ]
   }

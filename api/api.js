@@ -7,13 +7,19 @@ const Api = {
             .get()
             .then(querySnapshot => {
                 querySnapshot.forEach((doc) => {
-                    categories.push(doc.data().food_category);
+                    categories.push(
+                        {
+                            foodCategory: doc.data().food_category,
+                            foodTypes: doc.data().food_types
+                        });
                 });
-                return Promise.resolve(categories);
+
+                return categories;
             })
             .catch(err =>
                 console.log(err));
     },
+
     getCategoryId: async (categoryName) => {
         return db.collection(`RESTAURANTS/lrApMZq9rBNLQGtzVjKa/MENU`)
             .where('food_category', '==', categoryName)
@@ -24,12 +30,19 @@ const Api = {
 
     },
 
-    getProductsByCategory: async (categoryName) => {
+    getProductsByCategory: async (categoryName, subcategoryName) => {
+        console.log(categoryName, subcategoryName);
         let categoryId = await Api.getCategoryId(categoryName);
+        let path = `RESTAURANTS/lrApMZq9rBNLQGtzVjKa/MENU/${categoryId}`;
 
-        return db.collection(`RESTAURANTS/lrApMZq9rBNLQGtzVjKa/MENU/${categoryId}/${categoryName.toUpperCase()}`)
+        if (subcategoryName)
+            path += `/${subcategoryName}`;
+        else
+            path += `/${categoryName.toUpperCase()}`;
+
+        return await db.collection(path)
             .get()
-            .then(querySnapshot => {
+            .then(async querySnapshot => {
 
                 let products = [];
 

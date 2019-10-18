@@ -21,9 +21,6 @@ export default {
       if (this.product.desc.length < 180) return this.product.desc;
       return this.product.desc.substr(0, 180) + "...";
     }
-  },
-  updated() {
-    console.log(this.product);
   }
 };
 </script>
